@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Lock, ArrowRight, Loader2 } from 'lucide-react';
+import { Eye, EyeOff, Lock, ArrowRight, Loader2, User } from 'lucide-react'; // Added User import
 import { useAuth } from '../contexts/AuthContext';
 
 const LoginPage = () => {
@@ -53,10 +53,9 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <img src="logo.png" alt="InternHub Logo"className="h-14 w-14" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/48x48/cccccc/ffffff?text=Logo"; }} />
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg">
-           
+            <img src="../assets/logo.png" alt="InternHub Logo" className="h-8 w-8" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/32x32/ffffff/indigo?text=IH"; }} />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to InternHub</h1>
           <p className="text-gray-600">Sign in to manage your internship program</p>

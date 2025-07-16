@@ -1,9 +1,13 @@
 import React from "react";
+import { Outlet } from "react-router-dom"; // Added Outlet import
 
 function MainLayout(){
-return(
-<H1>MainLayout Page</H1>
-);
+  return(
+    <div>
+      <h1>MainLayout Page</h1>
+      <Outlet /> {/* Added Outlet to render nested routes */}
+    </div>
+  );
 }
 
 export default MainLayout;

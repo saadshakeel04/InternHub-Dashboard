@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Check if user is already logged in 
     const savedUser = localStorage.getItem('user');
-    if (SavedUser) {
-      setUser(JSON.parse(SavedUser));
+    if (savedUser) { // Fixed: was SavedUser, now savedUser
+      setUser(JSON.parse(savedUser)); // Fixed: was SavedUser, now savedUser
       setIsAuthenticated(true);
     }
   }, []);
