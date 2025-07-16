@@ -13,22 +13,22 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const validateForm = () => {
-    const newErrors = {};
+    const Err = {};
     
     if (!email) {
-      newErrors.email = 'Email is required';
+      Err.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'Please enter a valid email';
+      Err.email = 'Please enter a valid email';
     }
     
     if (!password) {
-      newErrors.password = 'Password is required';
+      Err.password = 'Password is required';
     } else if (password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
+      Err.password = 'Password must be at least 6 characters';
     }
     
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setErrors(Err);
+    return Object.keys(Err).length === 0;
   };
 
   const handleSubmit = async (e) => {
@@ -38,11 +38,14 @@ const LoginPage = () => {
     
     setIsLoading(true);
     try {
+      //gets email and passwods using useAuth
       await login(email, password);
       navigate('/dashboard');
-    } catch (error) {
+    }
+     catch (error) {
       setErrors({ email: 'Invalid credentials' });
-    } finally {
+    } 
+    finally {
       setIsLoading(false);
     }
   };
@@ -50,13 +53,7 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        {/* Logo and Welcome */}
-        <img
-  src="logo.png" // This is the path to your logo image
-  alt="InternHub Logo"
-  className="h-14 w-14" // Retains the size of the original icon
-  onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/48x48/cccccc/ffffff?text=Logo"; }} // Fallback for missing image
-/>
+        <img src="logo.png" alt="InternHub Logo"className="h-14 w-14" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/48x48/cccccc/ffffff?text=Logo"; }} />
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg">
            
@@ -65,10 +62,8 @@ const LoginPage = () => {
           <p className="text-gray-600">Sign in to manage your internship program</p>
         </div>
 
-        {/* Login Card */}
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Email Input */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -93,7 +88,6 @@ const LoginPage = () => {
               )}
             </div>
 
-            {/* Password Input */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password
@@ -128,8 +122,7 @@ const LoginPage = () => {
                 <p className="mt-2 text-sm text-red-600">{errors.password}</p>
               )}
             </div>
-
-            {/* Remember Me & Forgot Password */}
+            
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <input
@@ -150,7 +143,6 @@ const LoginPage = () => {
               </button>
             </div>
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={isLoading}
@@ -173,22 +165,13 @@ const LoginPage = () => {
               )}
             </button>
           </form>
-
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
-            <p className="text-sm font-medium text-amber-800 mb-2">Demo Credentials:</p>
-            <p className="text-sm text-amber-700">
-              Any email and password (6+ characters)
-            </p>
-          </div>
         </div>
 
-        {/* Footer */}
         <div className="text-center mt-8">
           <p className="text-gray-500 text-sm">
             Don't have an account?{' '}
             <button className="text-indigo-600 hover:text-indigo-500 font-medium transition-colors">
-              Contact Administrator
+              Signup Here
             </button>
           </p>
         </div>

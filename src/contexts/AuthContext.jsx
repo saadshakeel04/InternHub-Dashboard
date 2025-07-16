@@ -29,9 +29,9 @@ export const AuthProvider = ({ children }) => {
     // Random User Data
     const RandUser = {
       id: '1',
-      name: 'John Doe',
+      name: 'Saad Shakeel',
       email: email,
-      role: 'HR Manager',
+      role: 'Full Stack Developer',
       avatar: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'
     };
 
