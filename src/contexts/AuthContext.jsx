@@ -32,6 +32,7 @@ export const AuthProvider = ({ children }) => {
       name: 'Saad Shakeel',
       email: email,
       role: 'Full Stack Developer',
+      department :'Development',
       avatar: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'
     };
 
