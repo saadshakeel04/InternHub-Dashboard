@@ -11,18 +11,27 @@ import AuthRoute from './components/AuthRoute';
 
 function App() {
   return (
-    <Router>
-  <AuthProvider>
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-       <Route index element={<Navigate to="/dashboard" replace />} />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/"
+            element={
+              <AuthRoute>
+                <MainLayout />
+              </AuthRoute>
+            }
+          >
+            <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="candidates" element={<CandidatesPage />} />
             <Route path="internships" element={<InternshipsPage />} />
             <Route path="profile" element={<ProfilePage />} />
-    </Routes>
-  </AuthProvider>
-</Router>
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 export default App;
