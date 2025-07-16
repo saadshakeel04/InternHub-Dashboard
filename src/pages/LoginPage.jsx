@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Lock, ArrowRight, Loader2, User } from 'lucide-react'; // Added User import
-import { useAuth } from '../contexts/AuthContext';
+import { Eye, EyeOff, Lock, ArrowRight, Loader2, User, Building } from 'lucide-react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -9,8 +7,6 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
-  const navigate = useNavigate();
 
   const validateForm = () => {
     const Err = {};
@@ -38,31 +34,32 @@ const LoginPage = () => {
     
     setIsLoading(true);
     try {
-      //gets email and passwods using useAuth
-      await login(email, password);
-      navigate('/dashboard');
-    }
-     catch (error) {
+      // Simulate login process
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Login successful');
+    } catch (error) {
       setErrors({ email: 'Invalid credentials' });
-    } 
-    finally {
+    } finally {
       setIsLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-600 rounded-2xl mb-4 shadow-lg">
-            <img src="../assets/logo.png" alt="InternHub Logo" className="h-8 w-8" onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/32x32/ffffff/indigo?text=IH"; }} />
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome to InternHub</h1>
-          <p className="text-gray-600">Sign in to manage your internship program</p>
-        </div>
+      <div className="max-w-md w-full space-y-8">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="text-center">
+            <div className="flex justify-center">
+              <Building className="h-12 w-12 text-indigo-600" />
+            </div>
+            <h2 className="mt-6 text-3xl font-bold text-gray-900">Welcome to InternHub</h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Sign in to your account to manage internships
+            </p>
+          </div></div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -145,6 +142,7 @@ const LoginPage = () => {
             <button
               type="submit"
               disabled={isLoading}
+              onClick={handleSubmit}
               className={`w-full flex items-center justify-center py-3 px-4 rounded-lg text-white font-medium transition-all duration-200 ${
                 isLoading
                   ? 'bg-gray-400 cursor-not-allowed'
@@ -163,10 +161,10 @@ const LoginPage = () => {
                 </div>
               )}
             </button>
-          </form>
+          </div>
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-6">
           <p className="text-gray-500 text-sm">
             Don't have an account?{' '}
             <button className="text-indigo-600 hover:text-indigo-500 font-medium transition-colors">
