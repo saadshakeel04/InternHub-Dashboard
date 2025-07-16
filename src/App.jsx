@@ -16,10 +16,10 @@ function App() {
     <Routes>
       <Route path="/login" element={<LoginPage />} />
        <Route index element={<Navigate to="/dashboard" replace />} />
-//             <Route path="dashboard" element={<Dashboard />} />
-//             <Route path="candidates" element={<CandidatesPage />} />
-//             <Route path="internships" element={<InternshipsPage />} />
-//             <Route path="profile" element={<ProfilePage />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="candidates" element={<CandidatesPage />} />
+            <Route path="internships" element={<InternshipsPage />} />
+            <Route path="profile" element={<ProfilePage />} />
     </Routes>
   </AuthProvider>
 </Router>
