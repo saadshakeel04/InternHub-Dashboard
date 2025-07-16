@@ -17,10 +17,6 @@ export default function TopBar({ onMenuClick }) {
           >
             <Menu className="h-6 w-6" /> 
           </button>
-
-          <div className="ml-4 md:ml-0">
-            <h1 className="text-xl font-bold text-gray-900">Dashboard</h1>
-          </div>
         </div>
 
         <div className="flex items-center space-x-4">
