@@ -1,63 +1,43 @@
 import React, { useState, useMemo } from 'react';
-import { Search, Plus, ChevronUp, ChevronDown } from 'lucide-react';
-// Assuming these imports are correctly configured for your project
+import { Search, Plus, ArrowUpDown} from 'lucide-react';
 import { candidates } from '../data/candidates';
 import { internships } from '../data/internships';
-import Modal from '../components/Modal'; // Assuming Modal is a JSX component
-import FormInput from '../components/FormInput'; // Assuming FormInput is a JSX component
-import FormSelect from '../components/FormSelect'; // Assuming FormSelect is a JSX component
-import Button from '../components/Button'; // Assuming Button is a JSX component
-import StatusBadge from '../components/StatusBadge'; // Assuming StatusBadge is a JSX component
+import Modal from '../components/Modal'; 
+import FormInput from '../components/FormInput'; 
+import FormSelect from '../components/FormSelect'; 
+import Button from '../components/Button'; 
+import StatusBadge from '../components/StatusBadge'; 
 
-// Define the Candidate type using JSDoc for clarity
-/**
- * @typedef {object} Candidate
- * @property {number} id
- * @property {string} name
- * @property {string} email
- * @property {string} appliedInternship
- * @property {'Pending' | 'Approved' | 'Rejected'} status
- * @property {string} appliedDate
- */
 
-/**
- * @typedef {object} Internship
- * @property {string} id
- * @property {string} title
- * // ... other properties if needed
- */
-
-/**
- * Candidates component for managing and displaying internship candidates.
- * Allows searching, sorting, and adding new candidates.
- * @returns {JSX.Element}
- */
 const Candidates = () => {
+
   // State for the list of candidates
   const [candidatesList, setCandidatesList] = useState(candidates);
+
   // State for the search term
   const [searchTerm, setSearchTerm] = useState('');
-  // State for the field to sort by ('name' or 'status')
+
+  // State for the field to sort by name/status
   const [sortField, setSortField] = useState('name');
-  // State for the sort direction ('asc' or 'desc')
+
+  // State for the sort direction asc/desc
   const [sortDirection, setSortDirection] = useState('asc');
+
   // State to control the visibility of the add candidate modal
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   // State for the new candidate form data
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     internshipTitle: '',
-    status: 'Pending' // Changed from 'pending' to 'Pending' for consistency
+    status: 'Pending' 
   });
-  // State for form validation errors
+
+  // Form validation errors
   const [formErrors, setFormErrors] = useState({});
 
-  /**
-   * Memoized array of filtered and sorted candidates.
-   * Re-calculates only when candidatesList, searchTerm, sortField, or sortDirection changes.
-   * @type {Candidate[]}
-   */
+  //used memo for remembering (searched name)
   const filteredAndSortedCandidates = useMemo(() => {
     // Filter candidates based on the search term
     let filtered = candidatesList.filter(candidate =>
@@ -68,40 +48,34 @@ const Candidates = () => {
     // Sort the filtered candidates
     filtered.sort((a, b) => {
       // Get the values from the current sort field for comparison
-      let aValue = a[sortField];
-      let bValue = b[sortField];
+      let a1 = a[sortField];
+      let b1 = b[sortField];
       
-      // Perform locale-aware string comparison
+      // string comparison
       if (sortDirection === 'asc') {
-        return aValue.localeCompare(bValue);
+        return a1.localeCompare(b1);
       } else {
-        return bValue.localeCompare(aValue);
+        return b1.localeCompare(a1);
       }
     });
 
     return filtered;
   }, [candidatesList, searchTerm, sortField, sortDirection]);
 
-  /**
-   * Handles changing the sort field and direction.
-   * @param {'name' | 'status'} field - The field to sort by.
-   */
+
   const handleSort = (field) => {
     if (sortField === field) {
+
       // If clicking the same field, toggle sort direction
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    } else {
-      // If clicking a new field, set it as the sort field and default to ascending
+    } 
+    else {
+
       setSortField(field);
       setSortDirection('asc');
     }
   };
 
-  /**
-   * Generic handler for input and select changes in the form.
-   * @param {string} field - The name of the form field.
-   * @returns {(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void}
-   */
   const handleInputChange = (field) => (e) => {
     setFormData(prev => ({
       ...prev,
@@ -116,10 +90,6 @@ const Candidates = () => {
     }
   };
 
-  /**
-   * Validates the form data.
-   * @returns {boolean} True if the form is valid, false otherwise.
-   */
   const validateForm = () => {
     const errors = {};
     
@@ -130,19 +100,15 @@ const Candidates = () => {
     if (!formData.internshipTitle) errors.internshipTitle = 'Internship title is required';
     if (!formData.status) errors.status = 'Status is required';
 
-    setFormErrors(errors); // Update form errors state
+    setFormErrors(errors); 
     return Object.keys(errors).length === 0; // Return true if no errors
   };
 
-  /**
-   * Handles form submission for adding a new candidate.
-   * @param {React.FormEvent} e - The form event.
-   */
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
-    if (validateForm()) { // Only proceed if form is valid
+    e.preventDefault(); 
+    if (validateForm()) { //if form is valid
       const newCandidate = {
-        id: candidatesList.length + 1, // Simple ID generation (consider UUID in a real app)
+        id: candidatesList.length + 1,
         name: formData.name,
         email: formData.email,
         appliedInternship: formData.internshipTitle,
@@ -150,13 +116,13 @@ const Candidates = () => {
         appliedDate: new Date().toISOString().split('T')[0] // Current date in YYYY-MM-DD format
       };
       
-      setCandidatesList(prev => [...prev, newCandidate]); // Add new candidate to the list
-      setFormData({ name: '', email: '', internshipTitle: '', status: 'Pending' }); // Reset form, changed to 'Pending'
+      setCandidatesList(prev => [...prev, newCandidate]); // Add new candidate to list
+      setFormData({ name: '', email: '', internshipTitle: '', status: 'Pending' }); // Reset form
       setIsModalOpen(false); // Close the modal
     }
   };
 
-  // Prepare options for the internship dropdown from the imported `internships` data
+  // Prepare options for the internship dropdown from the data
   const internshipOptions = internships.map(internship => ({
     value: internship.title,
     label: internship.title
@@ -164,14 +130,14 @@ const Candidates = () => {
 
   // Define options for the status dropdown
   const statusOptions = [
-    { value: 'Pending', label: 'Pending' }, // Changed value to 'Pending'
-    { value: 'Approved', label: 'Approved' }, // Changed value to 'Approved'
-    { value: 'Rejected', label: 'Rejected' } // Changed value to 'Rejected'
+    { value: 'Pending', label: 'Pending' }, 
+    { value: 'Approved', label: 'Approved' }, 
+    { value: 'Rejected', label: 'Rejected' } 
   ];
 
   return (
     <>
-      {/* Page Header Section */}
+    
       <div className="space-y-3 px-6 sm:px-0 animate-fadeIn">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Candidates Overview</h1>
@@ -181,9 +147,8 @@ const Candidates = () => {
         </div>
       </div>
 
-      <div className="space-y-6 animate-fadeIn"> {/* Removed animate-fadeIn as it's on the outer div in MainLayout */}
-        {/* Header section with search input and add candidate button */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 sm:px-0"> {/* Added px-6 sm:px-0 for consistent padding */}
+      <div className="space-y-6 animate-fadeIn"> 
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 sm:px-0"> 
           <div className="relative">
             <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -213,9 +178,8 @@ const Candidates = () => {
                   >
                     <div className="flex items-center space-x-1">
                       <span>Name</span>
-                      {/* Display sort icon based on current sort field and direction */}
                       {sortField === 'name' && (
-                        sortDirection === 'asc' ? <ChevronUp size={16} /> : <ChevronDown size={16} />
+                        <ArrowUpDown size={16} className="text-gray-600" /> 
                       )}
                     </div>
                   </th>
@@ -231,9 +195,8 @@ const Candidates = () => {
                   >
                     <div className="flex items-center space-x-1">
                       <span>Status</span>
-                      {/* Display sort icon based on current sort field and direction */}
-                      {sortField === 'status' && (
-                        sortDirection === 'asc' ? <ChevronUp size={16} /> : <ChevronDown size={16} />
+                       {sortField === 'status' && (
+                        <ArrowUpDown size={16} className="text-gray-600" /> 
                       )}
                     </div>
                   </th>
@@ -259,7 +222,6 @@ const Candidates = () => {
                       <StatusBadge status={candidate.status} />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-gray-600">
-                      {/* Format the applied date for display */}
                       {new Date(candidate.appliedDate).toLocaleDateString()}
                     </td>
                   </tr>
@@ -274,13 +236,13 @@ const Candidates = () => {
           isOpen={isModalOpen}
           onClose={() => {
             setIsModalOpen(false);
-            setFormData({ name: '', email: '', internshipTitle: '', status: 'Pending' }); // Reset form on close, changed to 'Pending'
+            setFormData({ name: '', email: '', internshipTitle: '', status: 'Pending' }); // Reset form on close
             setFormErrors({}); // Clear errors on close
           }}
           title="Add New Candidate"
         >
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* FormInput for Name */}
+         
             <FormInput
               label="Name"
               value={formData.name}
@@ -290,7 +252,6 @@ const Candidates = () => {
               placeholder="Enter candidate name"
             />
             
-            {/* FormInput for Email */}
             <FormInput
               label="Email"
               type="email"
@@ -301,7 +262,6 @@ const Candidates = () => {
               placeholder="Enter candidate email"
             />
             
-            {/* FormSelect for Internship Title */}
             <FormSelect
               label="Internship Title"
               value={formData.internshipTitle}
@@ -311,7 +271,6 @@ const Candidates = () => {
               required
             />
             
-            {/* FormSelect for Status */}
             <FormSelect
               label="Status"
               value={formData.status}
@@ -321,7 +280,6 @@ const Candidates = () => {
               required
             />
             
-            {/* Form action buttons */}
             <div className="flex justify-end space-x-3 pt-4" >
               <Button 
                 type="button" 
