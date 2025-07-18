@@ -122,7 +122,7 @@ const InternshipModal = ({
 
   return (
 
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white-700 bg-opacity-70 backdrop-blur-md rounded-2xl">
       <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">
@@ -188,15 +188,15 @@ const InternshipModal = ({
               Description *
             </label>
             <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows={4}
-              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${
-                errors.description ? 'border-red-300' : 'border-gray-300'
-              }`}
-              placeholder="Describe the internship role and responsibilities"
-            />
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            rows={2} // Reduced height from 4 to 2
+            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${
+              errors.description ? 'border-red-300' : 'border-gray-300'
+            }`}
+            placeholder="Describe the internship role and responsibilities"
+          />
             {errors.description && (
               <p className="mt-1 text-sm text-red-600">{errors.description}</p>
             )}

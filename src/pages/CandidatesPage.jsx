@@ -167,20 +167,18 @@ const Candidates = () => {
         </div>
 
         {/* Candidates Table */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden px-6 sm:px-0"> {/* Added px-6 sm:px-0 for consistent padding */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden px-6 sm:px-0"> 
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead className="bg-gray-50">
                 <tr>
                   <th 
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100 "
                     onClick={() => handleSort('name')}
                   >
                     <div className="flex items-center space-x-1">
                       <span>Name</span>
-                      {sortField === 'name' && (
-                        <ArrowUpDown size={16} className="text-gray-600" /> 
-                      )}
+                        <ArrowUpDown size={16} className="text-gray-600" />                    
                     </div>
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -194,10 +192,8 @@ const Candidates = () => {
                     onClick={() => handleSort('status')}
                   >
                     <div className="flex items-center space-x-1">
-                      <span>Status</span>
-                       {sortField === 'status' && (
+                      <span>Status</span>              
                         <ArrowUpDown size={16} className="text-gray-600" /> 
-                      )}
                     </div>
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
