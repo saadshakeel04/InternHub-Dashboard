@@ -55,7 +55,7 @@ const LoginPage = () => {
   return (
     <>
       {/* Mobile Layout - Full Screen Background with Dark Transparent Form */}
-      <div className="md:hidden min-h-screen relative flex items-center justify-center p-4">
+      <div className="md:hidden min-h-screen relative flex items-center justify-center p-4 ">
         {/* Full Screen Background Image (now the direct background of the container) */}
         <div
           className="absolute inset-0 bg-cover bg-center"

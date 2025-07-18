@@ -16,7 +16,7 @@ export default function MainLayout() {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Topbar onMenuClick={() => setIsSidebarOpen(true)} />
 
-        <main className="flex-1 overflow-y-auto p-6">
+        <main className="flex-1 overflow-y-auto p-6 animate-fadeIn">
           {/* nested route content */}
           <Outlet />
         </main>

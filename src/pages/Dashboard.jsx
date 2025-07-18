@@ -46,7 +46,7 @@ const Dashboard = () => {
 
   return (
     <>
-    <div className="space-y-3 px-6 sm:px-0">
+    <div className="space-y-3 px-6 sm:px-0 animate-fadeIn">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Dashboard Overview</h1>
         <p className="mt-2 text-sm text-gray-600 mb-6">
@@ -56,7 +56,7 @@ const Dashboard = () => {
     <div className="space-y-6 p-6 sm:p-8 md:p-10 lg:p-0">
         
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 " >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn" >
         {stats.map((stat) => {
           const Icon = stat.icon; // Get the icon component dynamically
           return (

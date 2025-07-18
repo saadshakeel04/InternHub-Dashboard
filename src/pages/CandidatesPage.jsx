@@ -172,7 +172,7 @@ const Candidates = () => {
   return (
     <>
       {/* Page Header Section */}
-      <div className="space-y-3 px-6 sm:px-0">
+      <div className="space-y-3 px-6 sm:px-0 animate-fadeIn">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Candidates Overview</h1>
           <p className="mt-2 text-sm text-gray-600 mb-6">
@@ -181,7 +181,7 @@ const Candidates = () => {
         </div>
       </div>
 
-      <div className="space-y-6"> {/* Removed animate-fadeIn as it's on the outer div in MainLayout */}
+      <div className="space-y-6 animate-fadeIn"> {/* Removed animate-fadeIn as it's on the outer div in MainLayout */}
         {/* Header section with search input and add candidate button */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-6 sm:px-0"> {/* Added px-6 sm:px-0 for consistent padding */}
           <div className="relative">

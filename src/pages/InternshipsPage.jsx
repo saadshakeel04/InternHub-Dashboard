@@ -112,7 +112,7 @@ const InternshipsPage = () => {
   return (
     <>
       {/* Page Header Section: Combines title, description, and the "Post New Internship" button */}
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between space-y-3 sm:space-y-0 px-6 sm:px-0 mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between space-y-3 sm:space-y-0 px-6 sm:px-0 mb-6 animate-fadeIn" >
         {/* Left side content (title and description) */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full"> {/* Adjusted for responsive order */}
           <div className="flex flex-col order-1 sm:order-none"> {/* This div will stack h1 and p on small screens */}
@@ -133,7 +133,7 @@ const InternshipsPage = () => {
       </div>
 
       {/* Main container for the internships page content */}
-      <div className="space-y-6">
+      <div className="space-y-6 animate-fadeIn">
         {/* Filters and Search section */}
         <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 mx-6 sm:mx-0">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
