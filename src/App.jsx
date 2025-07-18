@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import CandidatesPage from './pages/CandidatesPage';
@@ -11,44 +12,30 @@ import AuthRoute from './components/AuthRoute';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/"
-            element={
-              <AuthRoute>
-                <MainLayout />
-              </AuthRoute>
-            }
-          >
-            <Route index element={<Navigate to="/dashboard" replace />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="candidates" element={<CandidatesPage />} />
-            <Route path="internships" element={<InternshipsPage />} />
-            <Route path="profile" element={<ProfilePage />} />
-          </Route>
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/"
+              element={
+                <AuthRoute>
+                  <MainLayout />
+                </AuthRoute>
+              }
+            >
+              <Route index element={<Navigate to="/dashboard" replace />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="candidates" element={<CandidatesPage />} />
+              <Route path="internships" element={<InternshipsPage />} />
+              <Route path="profile" element={<ProfilePage />} />
+            </Route>
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
+
 export default App;
-
-
-//             path="/"
-//             element={
-//               <AuthRoute>
-//                 <MainLayout />
-//               </AuthRoute>
-//             }
-//           >
-//             <Route index element={<Navigate to="/dashboard" replace />} />
-//             <Route path="dashboard" element={<Dashboard />} />
-//             <Route path="candidates" element={<CandidatesPage />} />
-//             <Route path="internships" element={<InternshipsPage />} />
-//             <Route path="profile" element={<ProfilePage />} />
-//           </Route>
-//         </Routes>
-//       </Router>

@@ -1,17 +1,43 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom'; 
-import { useAuth } from '../contexts/AuthContext.jsx'; 
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext'; // Assuming AuthContext is in this path
+import { Loader2 } from 'lucide-react'; // Assuming lucide-react is installed
 
+// Define the ProtectedRouteProps structure using JSDoc
+/**
+ * @typedef {object} ProtectedRouteProps
+ * @property {React.ReactNode} children
+ */
 
+/**
+ * A component that protects routes, redirecting unauthenticated users to the login page.
+ * It also displays a loading spinner while authentication status is being determined.
+ * @param {ProtectedRouteProps} { children }
+ * @returns {JSX.Element}
+ */
 const AuthRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-
+  // Destructure isAuthenticated and isLoading from the useAuth hook
+  const { isAuthenticated, isLoading } = useAuth();
+  
+  // If authentication status is still loading, display a loading spinner
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          {/* Loader2 icon from lucide-react, animated to spin */}
+          <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mx-auto mb-4" />
+          <p className="text-gray-600 dark:text-gray-400">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+  
+  // If the user is not authenticated, redirect them to the login page
   if (!isAuthenticated) {
-    // If not authenticated, redirect to the login page
     return <Navigate to="/login" replace />;
   }
-
-  // If authenticated, render the children.(single element)
+  
+  // If authenticated, render the children components (the protected content)
   return <>{children}</>;
 };
 

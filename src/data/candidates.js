@@ -6,8 +6,7 @@ export const candidates = [
     appliedInternship: 'Full Stack Developer Intern', 
     status: 'Approved',
     appliedDate: '2025-07-15', 
-    phone: '+92 320 8042513',
-    university: 'University of Gujrat'
+    
   },
   {
     id: '2',
@@ -16,8 +15,7 @@ export const candidates = [
     appliedInternship: 'Frontend Developer Intern',
     status: 'Pending',
     appliedDate: '2025-04-05', 
-    phone: '+92 333 4567890',
-    university: 'NUST Islamabad'
+    
   },
   {
     id: '3',
@@ -26,8 +24,7 @@ export const candidates = [
     appliedInternship: 'Data Science Intern', 
     status: 'Rejected',
     appliedDate: '2025-06-05', 
-    phone: '+92 300 1234567',
-    university: 'Lahore University of Management Sciences'
+   
   },
   {
     id: '4',
@@ -36,8 +33,7 @@ export const candidates = [
     appliedInternship: 'HR Intern', 
     status: 'Approved',
     appliedDate: '2025-07-14', 
-    phone: '+92 345 9876543',
-    university: 'University of Karachi'
+    
   },
   {
     id: '5',
@@ -46,8 +42,7 @@ export const candidates = [
     appliedInternship: 'HR Intern', 
     status: 'Pending',
     appliedDate: '2025-07-15', 
-    phone: '+92 312 2345678',
-    university: 'COMSATS Islamabad'
+   
   },
   {
     id: '6',
@@ -56,8 +51,7 @@ export const candidates = [
     appliedInternship: 'Backend Developer Intern',
     status: 'Approved',
     appliedDate: '2025-07-03', 
-    phone: '+92 301 7654321',
-    university: 'FAST Islamabad'
+   
   },
   {
     id: '7',
@@ -66,8 +60,7 @@ export const candidates = [
     appliedInternship: 'Backend Developer Intern',
     status: 'Pending',
     appliedDate: '2025-07-05', 
-    phone: '+92 334 1122334',
-    university: 'NED University of Engineering & Technology'
+  
   },
   {
     id: '8',
@@ -76,8 +69,7 @@ export const candidates = [
     appliedInternship: 'HR Intern',
     status: 'Rejected',
     appliedDate: '2025-07-13', 
-    phone: '+92 321 9988776',
-    university: 'University of the Punjab'
+    
   },
   {
     id: '9',
@@ -86,8 +78,7 @@ export const candidates = [
     appliedInternship: 'UX/UI Designer Intern', 
     status: 'Approved',
     appliedDate: '2025-06-28', 
-    phone: '+92 346 5544332',
-    university: 'NCA Lahore'
+   
   },
   {
     id: '10',
@@ -96,7 +87,6 @@ export const candidates = [
     appliedInternship: 'DevOps Intern', 
     status: 'Pending',
     appliedDate: '2025-07-07', 
-    phone: '+92 305 2233445',
-    university: 'UET Lahore'
+    
   }
 ];
