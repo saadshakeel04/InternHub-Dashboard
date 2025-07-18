@@ -21,7 +21,7 @@ const LoginPage = () => {
 
     if (!email) {
       newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
+    } else if (!/\S+@\S+/.test(email)) {
       newErrors.email = 'Please enter a valid email';
     }
 

@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    const mockUser = {
+    const randUser = {
       id: '1',
       name: 'Saad Shakeel',
       email: email,
