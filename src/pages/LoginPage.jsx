@@ -54,7 +54,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="md:hidden min-h-screen relative flex items-center justify-center p-4 ">
+      <div className="md:hidden min-h-screen relative flex items-center justify-center p-4 animate-fadeIn">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImage})` }}
@@ -151,7 +151,7 @@ const LoginPage = () => {
       </div>
 
       {/* Desktop Screen*/}
-      <div className="hidden md:flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 p-4 sm:p-6 lg:p-8">
+      <div className="hidden md:flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 p-4 sm:p-6 lg:p-8 animate-fadeIn">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row w-full max-w-7xl h-[600px]">
           <div className="w-1/2 p-10 lg:p-16 xl:p-20 flex items-center justify-center">
             <div className="w-full max-w-sm">
