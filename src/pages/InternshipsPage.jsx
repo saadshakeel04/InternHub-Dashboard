@@ -5,25 +5,6 @@ import { internships as initialInternships } from '../data/internships';
 import InternshipCard from '../components/InternCard';
 import InternshipModal from '../components/InternModal';
 
-// Define the Internship type using JSDoc
-/**
- * @typedef {object} Internship
- * @property {string} id
- * @property {string} title
- * @property {string} company
- * @property {string} department
- * @property {string} location
- * @property {string} duration
- * @property {string} status - 'Open' or 'Closed'
- * @property {number} applicants
- * @property {string} description
- */
-
-/**
- * InternshipsPage component displays a list of internships,
- * allows searching, filtering, adding, editing, and deleting internships.
- * @returns {JSX.Element}
- */
 const InternshipsPage = () => {
   // State for the list of internships, initialized from mock data
   const [internships, setInternships] = useState(initialInternships);

@@ -6,24 +6,6 @@ import { internships } from '../data/internships'; // Assuming Internship type i
 import CandidateTable from '../components/CandidateTable';
 import CandidateModal from '../components/CandidateModal';
 
-// Define the Candidate type using JSDoc for clarity
-/**
- * @typedef {object} Candidate
- * @property {string} id
- * @property {string} name
- * @property {string} email
- * @property {string} [phone]
- * @property {string} [university]
- * @property {string} appliedInternship
- * @property {'Pending' | 'Approved' | 'Rejected'} status
- * @property {string} appliedDate
- */
-
-/**
- * CandidatesPage component for managing internship candidates.
- * It provides features for searching, filtering, adding, editing, and deleting candidates.
- * @returns {JSX.Element}
- */
 const CandidatesPage = () => {
   // State for the list of candidates, initialized from mock data
   const [candidates, setCandidates] = useState(initialCandidates);

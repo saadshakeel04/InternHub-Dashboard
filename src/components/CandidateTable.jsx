@@ -1,36 +1,9 @@
 import React, { useState } from 'react';
 import { Edit2, Trash2, ChevronUp, ChevronDown } from 'lucide-react';
 // Assuming these imports are correctly configured for your project
-// import { Candidate } from '../data/candidates';
+import { Candidate } from '../data/candidates';
 import StatusBadge from './StatusBadge'; // Assuming StatusBadge is in this path
 
-// Define the Candidate type using JSDoc
-/**
- * @typedef {object} Candidate
- * @property {string} id
- * @property {string} name
- * @property {string} email
- * @property {string} [phone]
- * @property {string} [university]
- * @property {string} appliedInternship
- * @property {'Pending' | 'Approved' | 'Rejected'} status
- * @property {string} appliedDate
- */
-
-// Define the CandidateTableProps structure using JSDoc
-/**
- * @typedef {object} CandidateTableProps
- * @property {Candidate[]} candidates - Array of candidate objects to display.
- * @property {(candidate: Candidate) => void} onEdit - Callback for editing a candidate.
- * @property {(id: string) => void} onDelete - Callback for deleting a candidate.
- * @property {(id: string, status: Candidate['status']) => void} onStatusChange - Callback for changing a candidate's status.
- */
-
-/**
- * CandidateTable component displays a sortable table of candidates.
- * @param {CandidateTableProps} { candidates, onEdit, onDelete, onStatusChange }
- * @returns {JSX.Element}
- */
 const CandidateTable = ({
   candidates,
   onEdit,
@@ -42,11 +15,6 @@ const CandidateTable = ({
   // State for the current sort direction ('asc' or 'desc')
   const [sortDirection, setSortDirection] = useState('asc');
 
-  /**
-   * Handles sorting the table by a given field.
-   * Toggles sort direction if the same field is clicked again.
-   * @param {keyof Candidate} field - The field to sort by.
-   */
   const handleSort = (field) => {
     if (sortField === field) {
       setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
@@ -71,12 +39,7 @@ const CandidateTable = ({
     return 0; // Values are equal
   });
 
-  /**
-   * Helper component to display the correct sort icon.
-   * @param {object} props
-   * @param {keyof Candidate} props.field - The field associated with this sort icon.
-   * @returns {JSX.Element}
-   */
+
   const SortIcon = ({ field }) => {
     if (sortField !== field) {
       // Show a default icon if this field is not currently sorted

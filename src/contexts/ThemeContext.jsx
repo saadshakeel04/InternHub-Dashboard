@@ -1,12 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Define the ThemeContextType structure using JSDoc
-/**
- * @typedef {object} ThemeContextType
- * @property {boolean} isDark
- * @property {() => void} toggleTheme
- */
-
 // Create the ThemeContext with an undefined default value
 const ThemeContext = createContext(undefined);
 
@@ -23,18 +16,6 @@ export const useTheme = () => {
   return context;
 };
 
-/**
- * Props for the ThemeProvider component.
- * @typedef {object} ThemeProviderProps
- * @property {React.ReactNode} children
- */
-
-/**
- * Provides theme context (dark/light mode) to its children.
- * Manages theme state and persists it in localStorage.
- * @param {ThemeProviderProps} { children }
- * @returns {JSX.Element}
- */
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(false);
 

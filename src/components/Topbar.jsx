@@ -3,18 +3,6 @@ import { Bell, Menu, LogOut, Moon, Sun } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext'; // Assuming AuthContext is in this path
 import { useTheme } from '../contexts/ThemeContext'; // Assuming ThemeContext is in this path
 
-// Define the TopBarProps structure using JSDoc
-/**
- * @typedef {object} TopBarProps
- * @property {() => void} onMenuClick - Function to handle menu button click.
- */
-
-/**
- * TopBar component for the application dashboard.
- * Displays user information, theme toggle, notifications, and a menu button for mobile.
- * @param {TopBarProps} { onMenuClick }
- * @returns {JSX.Element}
- */
 const TopBar = ({ onMenuClick }) => {
   // Destructure user and logout from the useAuth hook
   const { user, logout } = useAuth();

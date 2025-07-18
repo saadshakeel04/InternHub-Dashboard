@@ -1,33 +1,7 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-// Assuming Candidate type is implicitly defined or imported from '../data/candidates'
 
-// Define the Candidate type (or a relevant subset) using JSDoc for clarity
-/**
- * @typedef {object} Candidate
- * @property {'Pending' | 'Approved' | 'Rejected'} status
- * // ... other properties of Candidate if needed elsewhere
- */
-
-// Define the StatusBadgeProps structure using JSDoc
-/**
- * @typedef {object} StatusBadgeProps
- * @property {Candidate['status']} status - The current status to display.
- * @property {(status: Candidate['status']) => void} [onChange] - Optional callback for when the status changes (if it's a selectable badge).
- */
-
-/**
- * StatusBadge component displays a colored badge for a candidate's status.
- * It can also act as a dropdown to change the status if an `onChange` prop is provided.
- * @param {StatusBadgeProps} { status, onChange }
- * @returns {JSX.Element}
- */
 const StatusBadge = ({ status, onChange }) => {
-  /**
-   * Returns Tailwind CSS classes for the badge's background and text color based on status.
-   * @param {Candidate['status']} currentStatus - The status value.
-   * @returns {string} - Tailwind CSS classes.
-   */
   const getStatusColor = (currentStatus) => {
     switch (currentStatus) {
       case 'Pending':

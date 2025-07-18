@@ -3,18 +3,6 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext'; // Assuming AuthContext is in this path
 import { Loader2 } from 'lucide-react'; // Assuming lucide-react is installed
 
-// Define the ProtectedRouteProps structure using JSDoc
-/**
- * @typedef {object} ProtectedRouteProps
- * @property {React.ReactNode} children
- */
-
-/**
- * A component that protects routes, redirecting unauthenticated users to the login page.
- * It also displays a loading spinner while authentication status is being determined.
- * @param {ProtectedRouteProps} { children }
- * @returns {JSX.Element}
- */
 const AuthRoute = ({ children }) => {
   // Destructure isAuthenticated and isLoading from the useAuth hook
   const { isAuthenticated, isLoading } = useAuth();

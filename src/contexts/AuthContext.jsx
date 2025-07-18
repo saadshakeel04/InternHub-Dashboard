@@ -1,25 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Define the User structure
-/**
- * @typedef {object} User
- * @property {string} id
- * @property {string} name
- * @property {string} email
- * @property {string} role
- * @property {string} department
- * @property {string} [avatar]
- */
-
-// Define the AuthContextType
-/**
- * @typedef {object} AuthContextType
- * @property {User | null} user
- * @property {(email: string, password: string) => Promise<void>} login
- * @property {() => void} logout
- * @property {boolean} isAuthenticated
- */
-
 // Create the context with a default undefined value
 const AuthContext = createContext(undefined);
 
@@ -36,18 +16,6 @@ export const useAuth = () => {
   return context;
 };
 
-/**
- * Props for the AuthProvider component.
- * @typedef {object} AuthProviderProps
- * @property {React.ReactNode} children
- */
-
-/**
- * Provides authentication context to its children.
- * Manages user login, logout, and authentication state.
- * @param {AuthProviderProps} { children }
- * @returns {JSX.Element}
- */
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);

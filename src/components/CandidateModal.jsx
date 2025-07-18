@@ -1,51 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 // Assuming these imports are correctly configured for your project
-// import { Candidate } from '../data/candidates';
-// import { Internship } from '../data/internships';
+import { Candidate } from '../data/candidates';
+import { Internship } from '../data/internships';
 
-// Define the Candidate type using JSDoc
-/**
- * @typedef {object} Candidate
- * @property {string} id
- * @property {string} name
- * @property {string} email
- * @property {string} [phone]
- * @property {string} [university]
- * @property {string} appliedInternship
- * @property {'Pending' | 'Approved' | 'Rejected'} status
- * @property {string} appliedDate
- */
-
-// Define the Internship type using JSDoc (needed for internships prop)
-/**
- * @typedef {object} Internship
- * @property {string} id
- * @property {string} title
- * @property {string} company
- * @property {string} department
- * @property {string} location
- * @property {string} duration
- * @property {string} status - 'Open' or 'Closed'
- * @property {number} applicants
- * @property {string} description
- */
-
-// Define the CandidateModalProps structure using JSDoc
-/**
- * @typedef {object} CandidateModalProps
- * @property {boolean} isOpen - Controls the visibility of the modal.
- * @property {() => void} onClose - Function to close the modal.
- * @property {(candidate: Omit<Candidate, 'id'>) => void} onSubmit - Function to handle form submission.
- * @property {Candidate | null} [candidate] - The candidate object to pre-fill the form for editing.
- * @property {Internship[]} internships - Array of available internships for the dropdown.
- */
-
-/**
- * CandidateModal component for adding or editing candidate information.
- * @param {CandidateModalProps} { isOpen, onClose, onSubmit, candidate, internships }
- * @returns {JSX.Element | null}
- */
 const CandidateModal = ({
   isOpen,
   onClose,
@@ -94,10 +52,6 @@ const CandidateModal = ({
     setErrors({}); // Clear errors on modal open/close or candidate change
   }, [candidate, isOpen]); // Rerun when candidate or isOpen changes
 
-  /**
-   * Validates the form data.
-   * @returns {boolean} - True if form is valid, false otherwise.
-   */
   const validateForm = () => {
     const newErrors = {};
 

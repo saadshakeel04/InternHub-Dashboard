@@ -9,18 +9,6 @@ import {
   Building
 } from 'lucide-react';
 
-/**
- * @typedef {object} SidebarProps
- * @property {boolean} isOpen - Controls the visibility of the sidebar (for mobile).
- * @property {() => void} onClose - Function to close the sidebar.
- */
-
-/**
- * Sidebar component for navigation within the application.
- * Features a mobile overlay and responsive design.
- * @param {SidebarProps} { isOpen, onClose }
- * @returns {JSX.Element}
- */
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
 

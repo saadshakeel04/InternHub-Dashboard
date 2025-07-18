@@ -3,11 +3,6 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar'; // Assuming Sidebar is in this path
 import TopBar from '../components/Topbar.jsx';   // Assuming TopBar is in this path
 
-/**
- * MainLayout component for the application.
- * It provides the overall structure including the sidebar, top bar, and content area.
- * @returns {JSX.Element}
- */
 const MainLayout = () => {
   // State to control the visibility of the sidebar (primarily for mobile)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
