@@ -85,12 +85,12 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Activity Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-fadeIn">
 
         {/* Recent Candidates List */}
         <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200 hover:shadow-md transition-shadow duration-200 ">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">Recent Candidates</h3>
-          <div className="space-y-4 ">
+          <div className="space-y-4 animate-fadeIn">
             {recentCandidates.map((candidate) => (
               // Individual candidate item
               <div key={candidate.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
