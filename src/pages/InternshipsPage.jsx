@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Search, Filter } from 'lucide-react';
-import { internships } from '../data/internships';
+import { internships as initialinternships } from '../data/internships';
 import InternshipCard from '../components/InternCard'; 
 import InternshipModal from '../components/InternModal'; 
 
@@ -9,7 +9,7 @@ import InternshipModal from '../components/InternModal';
 
 const InternshipsPage = () => {
   // State to manage the list of internships
-  const [internships, setInternships] = useState(internships);
+  const [internships, setInternships] = useState(initialinternships);
 
   // State for search term input
   const [searchTerm, setSearchTerm] = useState('');

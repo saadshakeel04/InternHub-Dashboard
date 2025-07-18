@@ -54,32 +54,26 @@ const LoginPage = () => {
 
   return (
     <>
-      {/* Mobile Layout - Full Screen Background with Dark Transparent Form */}
       <div className="md:hidden min-h-screen relative flex items-center justify-center p-4 ">
-        {/* Full Screen Background Image (now the direct background of the container) */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${backgroundImage})` }}
           aria-hidden="true"
         ></div>
 
-        {/* Dark Transparent Form Overlay - Centered */}
-        {/* This div itself will be the blurry element, sitting on top of the background image */}
         <div className="relative z-10 p-6 w-full max-w-sm">
-          <div className="bg-white-700 bg-opacity-70 backdrop-blur-md rounded-2xl p-8 w-full shadow-lg flex flex-col items-center"> {/* Changed to gray-700 with opacity */}
-            {/* Logo and Text */}
+          <div className="bg-white-700 bg-opacity-70 backdrop-blur-md rounded-2xl p-8 w-full shadow-lg flex flex-col items-center"> 
             <div className="text-center mb-8">
               <img
                 src={logo}
                 alt="SuaLogo#"
-                className="h-32 w-auto mx-auto mb-4" // Bigger logo for mobile
+                className="h-32 w-auto mx-auto mb-4" 
               />
               <h2 className="text-2xl font-bold text-black mb-2">Greetings User</h2> 
               <p className="text-black-200 text-sm">Join in and explore more of us</p> 
             </div>
 
             <form className="space-y-6 w-full" onSubmit={handleSubmit}>
-              {/* Email Input */}
               <div>
                 <div className="relative">
                   <input
@@ -142,7 +136,8 @@ const LoginPage = () => {
                 variant="dark"
                 size="md"
               >
-                {/* Conditional rendering for LogIn icon */}
+
+                {/* rendering for Login icon */}
                 {!isLoading && <LogIn className="h-5 w-5 mr-2" />}
                 {isLoading ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -155,26 +150,22 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* Desktop Layout - Split Screen with Form and Image */}
+      {/* Desktop Screen*/}
       <div className="hidden md:flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 p-4 sm:p-6 lg:p-8">
-        {/* The main login card container */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row w-full max-w-7xl h-[600px]">
-          {/* Desktop Layout - Left Panel Login Form */}
           <div className="w-1/2 p-10 lg:p-16 xl:p-20 flex items-center justify-center">
             <div className="w-full max-w-sm">
-              {/* Logo and Text - Centered and Bigger for Desktop */}
               <div className="text-center mb-12">
                 <img
                   src={logo}
-                  alt="SuaLogo#"
-                  className="h-32 w-auto mx-auto mb-4" // Increased logo size for desktop
+                  alt="logo"
+                  className="h-32 w-auto mx-auto mb-4"
                 />
                 <h2 className="text-3xl font-bold text-gray-900 mb-2">Greetings User</h2>
                 <p className="text-gray-600 text-base">Join in and explore more of us</p>
               </div>
 
               <form className="space-y-6" onSubmit={handleSubmit}>
-                {/* Email Input */}
                 <div>
                   <div className="relative">
                     <input
@@ -237,7 +228,7 @@ const LoginPage = () => {
                   variant="dark"
                   size="md"
                 >
-                  {/* Conditional rendering for LogIn icon */}
+                  {/*rendering for Login icon */}
                   {!isLoading && <LogIn className="h-5 w-5 mr-2" />}
                   {isLoading ? (
                     <Loader2 className="h-5 w-5 animate-spin" />
@@ -249,7 +240,7 @@ const LoginPage = () => {
             </div>
           </div>
 
-          {/* Desktop Layout - Right Panel Background Image */}
+          {/* half screen image*/}
           <div
             className="w-1/2 bg-cover bg-center"
             style={{ backgroundImage: `url(${backgroundImage})` }}
