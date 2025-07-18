@@ -10,7 +10,8 @@ import {
 import logo from '../assets/logo.png';
 
 export default function Sidebar({ isOpen, onClose }) {
-    const location = useLocation();
+
+  const location = useLocation();
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
     { name: 'Candidates', href: '/candidates', icon: Users },
@@ -20,7 +21,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
   return (
     <>
-      {/*Mobiel View*/}
+      {/*For smaller screens(mobile)*/}
       {isOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"

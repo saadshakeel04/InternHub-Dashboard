@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Button = ({
   children,
   onClick,
@@ -25,10 +24,9 @@ const Button = ({
     lg: 'px-6 py-3 text-base'
   };
 
-  // Alternative to clsx using template literals for combining class names
   const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${
     disabled ? 'opacity-50 cursor-not-allowed' : ''
-  } ${className || ''}`.trim(); // .trim() removes any extra spaces
+  } ${className || ''}`.trim(); // .trim() to remove any extra spaces
 
   return (
     <button

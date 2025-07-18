@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const StatusBadge = ({ status, onChange }) => {
-    
+
   const getStatusColor = (currentStatus) => {
     switch (currentStatus) {
       case 'Pending':
@@ -16,7 +16,7 @@ const StatusBadge = ({ status, onChange }) => {
     }
   };
 
-  // If no onChange prop is provided, render a static badge (span)
+  // If no onChange prop is provided return simple
   if (!onChange) {
     return (
       <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
@@ -32,7 +32,7 @@ const StatusBadge = ({ status, onChange }) => {
     <div className="relative">
       <select
         value={status}
-        onChange={(e) => onChange(e.target.value)} // Cast to Candidate['status'] is implicit in JSX
+        onChange={(e) => onChange(e.target.value)} 
         className={`appearance-none rounded-full text-xs font-medium px-2.5 py-0.5 pr-6 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer ${
           getStatusColor(status)
         }`}
@@ -41,8 +41,8 @@ const StatusBadge = ({ status, onChange }) => {
         <option value="Approved">Approved</option>
         <option value="Rejected">Rejected</option>
       </select>
-      {/* Chevron icon for the dropdown, positioned absolutely */}
       <ChevronDown className="absolute right-1 top-1/2 transform -translate-y-1/2 h-3 w-3 text-current pointer-events-none" />
+      
     </div>
   );
 };

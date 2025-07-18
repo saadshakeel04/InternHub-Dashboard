@@ -2,14 +2,15 @@ import React from 'react';
 
 const FormInput = ({ 
   label, 
-  type = "text", // Default type to "text"
+  type = "text",
   value, 
   onChange, 
   error, 
-  required = false, // Default required to false
+  required = false, 
   placeholder 
 }) => {
   return (
+    //styling the form
     <div className="mb-4">
       <label className="block text-sm font-medium text-gray-700 mb-1">
         {label}

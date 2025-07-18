@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
-// Props are directly destructured from the argument object
+// Props destructuring
 const InternshipModal = ({
   isOpen,
   onClose,
   onSubmit,
   internship
 }) => {
+
   // State to manage form data
   const [formData, setFormData] = useState({
     title: '',
     department: '',
     description: '',
-    duration: 12, // Default duration
-    stipend: 10000, // Default stipend
-    status: 'Open', // Default status
+    duration: 12, 
+    stipend: 10000, 
+    status: 'Open',
     postedDate: new Date().toISOString().split('T')[0], // Default to current date (YYYY-MM-DD)
-    applicants: 0 // Default applicants count
+    applicants: 0 
   });
 
-  // State for form validation errors
+  // Manage validation errors
   const [errors, setErrors] = useState({});
 
-  // Predefined list of departments for the dropdown based on your data
   const departments = ['Development', 'Analytics', 'Design', 'Engineering', 'Human Resources'];
 
   // useEffect hook to populate form data when modal opens or 'internship' prop changes
@@ -40,8 +40,9 @@ const InternshipModal = ({
         postedDate: internship.postedDate,
         applicants: internship.applicants
       });
-    } else {
-      // If no internship object (for creating new), reset the form to default values
+    } 
+    else {
+      // If no internship object, reset the form to default values
       setFormData({
         title: '',
         department: '',
@@ -55,9 +56,9 @@ const InternshipModal = ({
     }
     // Clear errors whenever the modal state changes
     setErrors({});
-  }, [internship, isOpen]); // Dependencies: re-run when internship object or isOpen prop changes
+  }, [internship, isOpen]); //re-run when internship object or isOpen prop changes
 
-  // Function to validate form fields
+  //validate form fields
   const validateForm = () => {
     const newErrors = {};
 
@@ -94,11 +95,11 @@ const InternshipModal = ({
     e.preventDefault(); // Prevent default browser form submission
 
     if (!validateForm()) {
-      return; // If validation fails, stop the submission
+      return; // If fails then stop submission
     }
 
-    onSubmit(formData); // Call the onSubmit prop with the form data
-    onClose(); // Close the modal after successful submission
+    onSubmit(formData); // gets the form data
+    onClose(); // closing
   };
 
   // Generic handler for input, select, and textarea changes
@@ -116,31 +117,28 @@ const InternshipModal = ({
     }
   };
 
-  // If modal is not open, render nothing
+  // If modal is not open, null
   if (!isOpen) return null;
 
   return (
-    // Modal overlay: fixed position, semi-transparent black background, centered content
+
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      {/* Modal content area: white background, rounded corners, shadow, scrollable */}
       <div className="bg-white rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        {/* Modal Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900">
-            {internship ? 'Edit Internship' : 'Post New Internship'} {/* Dynamic title */}
+            {internship ? 'Edit Internship' : 'Post New Internship'} 
           </h2>
-          {/* Close button */}
+
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
           >
-            <X className="h-5 w-5 text-gray-400" /> {/* Close icon */}
+            <X className="h-5 w-5 text-gray-400" />
           </button>
         </div>
 
         {/* Modal Form */}
         <div className="p-6 space-y-6">
-          {/* Title and Department fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -184,7 +182,7 @@ const InternshipModal = ({
             </div>
           </div>
 
-          {/* Description field */}
+          {/* Description */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Description *
@@ -261,7 +259,7 @@ const InternshipModal = ({
             </div>
           </div>
 
-          {/* Applicants field */}
+          {/* Applicants */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Number of Applicants
@@ -310,7 +308,7 @@ const InternshipModal = ({
               onClick={handleSubmit}
               className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors duration-200"
             >
-              {internship ? 'Update' : 'Post'} Internship {/* Dynamic button text */}
+              {internship ? 'Update' : 'Post'} Internship 
             </button>
           </div>
         </div>

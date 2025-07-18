@@ -1,6 +1,6 @@
 import React from 'react';
 import { Bell, Menu, LogOut } from 'lucide-react';
-import { useAuth } from '../contexts/AuthContext'; // Assuming this path is correct
+import { useAuth } from '../contexts/AuthContext'; 
 import pic from '../assets/user.jpg';
 
 export default function TopBar({ onMenuClick }) {
@@ -16,9 +16,7 @@ export default function TopBar({ onMenuClick }) {
             className="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
           >
             <Menu className="h-6 w-6" /> 
-          </button>
-
-          
+          </button> 
         </div>
 
         <div className="flex items-center space-x-4">
@@ -31,7 +29,7 @@ export default function TopBar({ onMenuClick }) {
             <img
               className="h-8 w-8 rounded-full object-cover"
               src={pic}
-              alt={user?.name || 'User Avatar'}
+              alt={user?.name}
             />
             <div className="hidden md:block">
               <div className="text-sm font-medium text-gray-900">{user?.name}</div>
