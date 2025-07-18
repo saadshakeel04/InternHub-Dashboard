@@ -1,5 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
+
 
 const FormSelect = ({ 
   label, 
@@ -18,10 +18,9 @@ const FormSelect = ({
       <select
         value={value}
         onChange={onChange}
-        className={clsx(
-          "w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors",
-          error ? "border-red-500" : "border-gray-300"
-        )}
+        className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-colors ${
+  error ? "border-red-500" : "border-gray-300"
+}`}
       >
         <option value="">Select {label}</option>
         {options.map((option) => (

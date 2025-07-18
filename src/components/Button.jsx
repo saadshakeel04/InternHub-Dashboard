@@ -16,7 +16,7 @@ const Button = ({
     primary: 'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
     secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-    dark: 'bg-indigo-700 text-white hover:bg-indigo-800 focus:ring-indigo-700' // Changed to indigo-700 and hover:bg-indigo-800
+    dark: 'bg-indigo-700 text-white hover:bg-indigo-800 focus:ring-indigo-700' 
   };
 
   const sizes = {

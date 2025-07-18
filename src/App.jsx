@@ -9,6 +9,7 @@ import ProfilePage from './pages/ProfilePage';
 import MainLayout from './layouts/MainLayout';
 import AuthRoute from './components/AuthRoute';
 
+
 function App() {
   return (
     <AuthProvider>

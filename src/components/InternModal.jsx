@@ -14,20 +14,17 @@ const InternshipModal = ({
     department: '',
     description: '',
     duration: 12, // Default duration
-    stipend: 1000, // Default stipend
+    stipend: 10000, // Default stipend
     status: 'Open', // Default status
     postedDate: new Date().toISOString().split('T')[0], // Default to current date (YYYY-MM-DD)
-    requirements: [], // Array to hold requirements
     applicants: 0 // Default applicants count
   });
 
-  // State for the individual requirement input field
-  const [requirementInput, setRequirementInput] = useState('');
   // State for form validation errors
   const [errors, setErrors] = useState({});
 
-  // Predefined list of departments for the dropdown
-  const departments = ['Engineering', 'Design', 'Marketing', 'Analytics', 'Operations', 'Finance'];
+  // Predefined list of departments for the dropdown based on your data
+  const departments = ['Development', 'Analytics', 'Design', 'Engineering', 'Human Resources'];
 
   // useEffect hook to populate form data when modal opens or 'internship' prop changes
   useEffect(() => {
@@ -41,7 +38,6 @@ const InternshipModal = ({
         stipend: internship.stipend,
         status: internship.status,
         postedDate: internship.postedDate,
-        requirements: internship.requirements,
         applicants: internship.applicants
       });
     } else {
@@ -51,16 +47,14 @@ const InternshipModal = ({
         department: '',
         description: '',
         duration: 12,
-        stipend: 1000,
+        stipend: 10000,
         status: 'Open',
         postedDate: new Date().toISOString().split('T')[0],
-        requirements: [],
         applicants: 0
       });
     }
-    // Clear errors and requirement input whenever the modal state changes
+    // Clear errors whenever the modal state changes
     setErrors({});
-    setRequirementInput('');
   }, [internship, isOpen]); // Dependencies: re-run when internship object or isOpen prop changes
 
   // Function to validate form fields
@@ -85,6 +79,10 @@ const InternshipModal = ({
 
     if (formData.stipend < 0) {
       newErrors.stipend = 'Stipend cannot be negative';
+    }
+
+    if (formData.applicants < 0) {
+      newErrors.applicants = 'Applicants cannot be negative';
     }
 
     setErrors(newErrors);
@@ -118,34 +116,6 @@ const InternshipModal = ({
     }
   };
 
-  // Function to add a new requirement to the list
-  const addRequirement = () => {
-    // Check if input is not empty and not already in the list
-    if (requirementInput.trim() && !formData.requirements.includes(requirementInput.trim())) {
-      setFormData(prev => ({
-        ...prev,
-        requirements: [...prev.requirements, requirementInput.trim()] // Add new requirement
-      }));
-      setRequirementInput(''); // Clear the input field
-    }
-  };
-
-  // Function to remove a requirement by its index
-  const removeRequirement = (index) => {
-    setFormData(prev => ({
-      ...prev,
-      requirements: prev.requirements.filter((_, i) => i !== index) // Filter out the requirement at the given index
-    }));
-  };
-
-  // Handler for key presses in the requirement input field (e.g., Enter key)
-  const handleRequirementKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault(); // Prevent form submission if Enter is pressed in this field
-      addRequirement(); // Add the requirement
-    }
-  };
-
   // If modal is not open, render nothing
   if (!isOpen) return null;
 
@@ -169,7 +139,7 @@ const InternshipModal = ({
         </div>
 
         {/* Modal Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <div className="p-6 space-y-6">
           {/* Title and Department fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -258,7 +228,7 @@ const InternshipModal = ({
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Stipend ($/month) *
+                Stipend (pkr/month) *
               </label>
               <input
                 type="number"
@@ -291,46 +261,39 @@ const InternshipModal = ({
             </div>
           </div>
 
-          {/* Requirements section */}
+          {/* Applicants field */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Requirements
+              Number of Applicants
             </label>
-            <div className="flex gap-2 mb-2">
-              <input
-                type="text"
-                value={requirementInput}
-                onChange={(e) => setRequirementInput(e.target.value)}
-                onKeyPress={handleRequirementKeyPress}
-                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Add a requirement"
-              />
-              <button
-                type="button"
-                onClick={addRequirement}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200"
-              >
-                Add
-              </button>
-            </div>
-            {/* Display added requirements as badges */}
-            <div className="flex flex-wrap gap-2">
-              {formData.requirements.map((req, index) => (
-                <span
-                  key={index}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-indigo-100 text-indigo-800"
-                >
-                  {req}
-                  <button
-                    type="button"
-                    onClick={() => removeRequirement(index)}
-                    className="ml-2 text-indigo-600 hover:text-indigo-800"
-                  >
-                    × {/* Close icon for removing requirement */}
-                  </button>
-                </span>
-              ))}
-            </div>
+            <input
+              type="number"
+              name="applicants"
+              value={formData.applicants}
+              onChange={handleChange}
+              min="0"
+              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 ${
+                errors.applicants ? 'border-red-300' : 'border-gray-300'
+              }`}
+              placeholder="Enter number of applicants"
+            />
+            {errors.applicants && (
+              <p className="mt-1 text-sm text-red-600">{errors.applicants}</p>
+            )}
+          </div>
+
+          {/* Posted Date field */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Posted Date
+            </label>
+            <input
+              type="date"
+              name="postedDate"
+              value={formData.postedDate}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
           </div>
 
           {/* Form action buttons */}
@@ -343,13 +306,14 @@ const InternshipModal = ({
               Cancel
             </button>
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors duration-200"
             >
               {internship ? 'Update' : 'Post'} Internship {/* Dynamic button text */}
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );

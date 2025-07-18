@@ -200,7 +200,7 @@ const ProfilePage = () => {
             <button
               type="button"
               onClick={handlePasswordSubmit}
-              className="w-full flex items-center justify-center px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-colors"
+              className="w-full flex items-center justify-center px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-200 hover:scale-103 transition-colors"
             >
               <RefreshCcwDot className="h-4 w-4 mr-2" />
               Update Password

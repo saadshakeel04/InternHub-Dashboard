@@ -10,7 +10,7 @@ const AuthRoute = ({ children }) => {
   // If authentication status is still loading, display a loading spinner
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           {/* Loader2 icon from lucide-react, animated to spin */}
           <Loader2 className="h-8 w-8 animate-spin text-indigo-600 mx-auto mb-4" />

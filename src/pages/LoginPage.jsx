@@ -233,7 +233,7 @@ const LoginPage = () => {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full flex justify-center py-3 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed mt-8"
+                  className="w-full flex justify-center py-3 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed mt-8 hover-scale-105"
                   variant="dark"
                   size="md"
                 >

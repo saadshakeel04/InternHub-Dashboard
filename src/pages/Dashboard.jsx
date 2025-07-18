@@ -61,7 +61,7 @@ const Dashboard = () => {
           const Icon = stat.icon; // Get the icon component dynamically
           return (
             // Individual stat card
-            <div key={stat.name} className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow duration-200">
+            <div key={stat.name} className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow duration-200 transition-all duration-200 hover:scale-103">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-gray-600">{stat.name}</p>
