@@ -5,6 +5,7 @@ import { internships } from '../data/internships';
 
 
 const Dashboard = () => {
+
   // Define an array of statistics for the dashboard cards
   const stats = [
     {
@@ -58,7 +59,8 @@ const Dashboard = () => {
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn" >
         {stats.map((stat) => {
-          const Icon = stat.icon; // Get the icon component dynamically
+          const Icon = stat.icon; 
+
           return (
             // Individual stat card
             <div key={stat.name} className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow duration-200 transition-all duration-200 hover:scale-103">
@@ -84,7 +86,7 @@ const Dashboard = () => {
         })}
       </div>
 
-      {/* Recent Activity Section */}
+      {/* Recent Activity*/}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-fadeIn">
 
         {/* Recent Candidates List */}
