@@ -36,20 +36,3 @@ function App() {
   );
 }
 export default App;
-
-
-//             path="/"
-//             element={
-//               <AuthRoute>
-//                 <MainLayout />
-//               </AuthRoute>
-//             }
-//           >
-//             <Route index element={<Navigate to="/dashboard" replace />} />
-//             <Route path="dashboard" element={<Dashboard />} />
-//             <Route path="candidates" element={<CandidatesPage />} />
-//             <Route path="internships" element={<InternshipsPage />} />
-//             <Route path="profile" element={<ProfilePage />} />
-//           </Route>
-//         </Routes>
-//       </Router>
