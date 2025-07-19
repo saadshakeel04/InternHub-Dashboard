@@ -65,7 +65,7 @@ const LoginPage = () => {
             <div className="text-center mb-8">
               <img
                 src={logo}
-                alt="SuaLogo#"
+                alt="logo"
                 className="h-32 w-auto mx-auto mb-4" 
               />
               <h2 className="text-2xl font-bold text-black mb-2">Greetings User</h2> 
@@ -76,10 +76,13 @@ const LoginPage = () => {
               <div>
                 <div className="relative">
                   <input
-                    id="email-mobile"
+                    id="emailMobile"
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, email: '' }));
+                    }}
                     className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${
                       errors.email ? 'border-red-400' : ''
                     }`}
@@ -95,14 +98,16 @@ const LoginPage = () => {
                 )}
               </div>
 
-              {/* Password Input */}
               <div>
                 <div className="relative">
                   <input
-                    id="password-mobile"
+                    id="passwordMobile"
                     type={showPassword ? 'text' : 'password'}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, password: '' }));
+                    }}
                     className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${
                       errors.password ? 'border-red-400' : ''
                     }`}
@@ -128,14 +133,13 @@ const LoginPage = () => {
               </div>
 
               {/* Sign In Button */}
-              <Button
+              <Button 
                 type="submit"
                 disabled={isLoading}
                 className="w-full flex justify-center py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed mt-8"
-                variant="dark"
                 size="md"
               >
-                {/* rendering for Login icon */}
+              
                 {!isLoading && <LogIn className="h-5 w-5 mr-2" />}
                 {isLoading ? (
                   <Loader2 className="h-5 w-5 animate-spin" />
@@ -148,7 +152,7 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* Desktop Screen*/}
+      {/* Big Screen*/}
       <div className="hidden md:flex items-center justify-center min-h-screen bg-gradient-to-br from-indigo-50 via-white to-amber-50 p-4 sm:p-6 lg:p-8 animate-fadeIn">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row w-full max-w-7xl h-[600px]">
           <div className="w-1/2 p-10 lg:p-16 xl:p-20 flex items-center justify-center">
@@ -170,7 +174,10 @@ const LoginPage = () => {
                       id="email"
                       type="email"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                      setEmail(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, email: '' }));
+                    }}
                       className={`block w-full py-3 border-b border-gray-300 focus:outline-none focus:border-indigo-500 text-gray-900 placeholder-gray-500 pr-10 bg-transparent ${
                         errors.email ? 'border-red-400' : ''
                       }`}
@@ -186,14 +193,16 @@ const LoginPage = () => {
                   )}
                 </div>
 
-                {/* Password Input */}
                 <div>
                   <div className="relative">
                     <input
                       id="password"
                       type={showPassword ? 'text' : 'password'}
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {
+                      setPassword(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, password: '' }));
+                    }}
                       className={`block w-full py-3 border-b border-gray-300 focus:outline-none focus:border-indigo-500 text-gray-900 placeholder-gray-500 pr-10 bg-transparent ${
                         errors.password ? 'border-red-400' : ''
                       }`}
@@ -218,15 +227,14 @@ const LoginPage = () => {
                   )}
                 </div>
 
-                {/* Sign In Button */}
                 <Button
                   type="submit"
                   disabled={isLoading}
                   className="w-full flex justify-center py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed mt-8 hover-scale-105"
-                  variant="dark"
+
                   size="md"
                 >
-                  {/*rendering for Login icon */}
+                  {/*rendering*/}
                   {!isLoading && <LogIn className="h-5 w-5 mr-2" />}
                   {isLoading ? (
                     <Loader2 className="h-5 w-5 animate-spin" />
