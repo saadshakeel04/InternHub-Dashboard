@@ -37,7 +37,7 @@ export const candidates = [
   },
   {
     id: '5',
-    name: 'Ahsan Rauf',
+    name: 'Noor Fatima',
     email: 'ahsanR@gmail.com',
     appliedInternship: 'HR Intern', 
     status: 'Pending',
