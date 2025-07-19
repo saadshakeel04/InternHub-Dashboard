@@ -214,7 +214,7 @@ const Candidates = () => {
                       <div className="text-gray-600">{candidate.appliedInternship}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {/* StatusBadge component to display candidate status */}
+                      {/* StatusBadge component to show candidate status */}
                       <StatusBadge status={candidate.status} />
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-gray-600">

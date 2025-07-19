@@ -5,8 +5,6 @@ import InternshipCard from '../components/InternCard';
 import InternshipModal from '../components/InternModal'; 
 
 
-// This component manages the entire internship listing page
-
 const InternshipsPage = () => {
   // State to manage the list of internships
   const [internships, setInternships] = useState(initialinternships);

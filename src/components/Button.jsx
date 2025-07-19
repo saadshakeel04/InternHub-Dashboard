@@ -13,9 +13,7 @@ const Button = ({
     
   const variants = {
     primary: 'bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-    dark: 'bg-indigo-700 text-white hover:bg-indigo-800 focus:ring-indigo-700' 
+    sidebar: 'text-gray-300 hover:text-red-400 hover:bg-gray-700 transition-colors duration-200',
   };
 
   const sizes = {
@@ -26,14 +24,14 @@ const Button = ({
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${
     disabled ? 'opacity-50 cursor-not-allowed' : ''
-  } ${className || ''}`.trim(); // .trim() to remove any extra spaces
+  } ${className || ''}`.trim();
 
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={combinedClassName} // Use the combined string
+      className={combinedClassName}
     >
       {children}
     </button>

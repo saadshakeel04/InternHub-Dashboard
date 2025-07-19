@@ -37,7 +37,8 @@ const InternshipCard = ({ internship, onEdit, onDelete }) => {
 
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-sm text-gray-500">
-            <Calendar className="h-4 w-4 mr-2" /> {/* Calendar icon */}
+            <Calendar className="h-4 w-4 mr-2" />
+            {internship.postedDate}
           </div>
           <div className="flex items-center text-sm text-gray-500">
             <Banknote className="h-4 w-4 mr-2" /> 

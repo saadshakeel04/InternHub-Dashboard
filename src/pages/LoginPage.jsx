@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Loader2, User, LogIn } from 'lucide-react';
-import Button from '../components/Button.jsx'; // Ensure this path is correct
-
-import { useAuth } from '../contexts/AuthContext.jsx'; // Ensure this path is correct
-import logo from '../assets/logo.png'; // Ensure this path is correct
-import backgroundImage from '../assets/bg.jpg'; // Ensure this path is correct
+import Button from '../components/Button';
+import { useAuth } from '../contexts/AuthContext';
+import logo from '../assets/logo.png';
+import backgroundImage from '../assets/bg.jpg';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -81,14 +80,14 @@ const LoginPage = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${ // Text/placeholder/focus color changed to black/gray-500
+                    className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${
                       errors.email ? 'border-red-400' : ''
                     }`}
                     placeholder="Email"
                     aria-label="Email address"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <User className="h-5 w-5 text-black-500" /> {/* Icon color adjusted */}
+                    <User className="h-5 w-5 text-black-500" />
                   </div>
                 </div>
                 {errors.email && (
@@ -104,7 +103,7 @@ const LoginPage = () => {
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${ // Text/placeholder/focus color changed to black/gray-500
+                    className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${
                       errors.password ? 'border-red-400' : ''
                     }`}
                     placeholder="Password"
@@ -132,11 +131,10 @@ const LoginPage = () => {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-3 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed mt-8"
+                className="w-full flex justify-center py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed mt-8"
                 variant="dark"
                 size="md"
               >
-
                 {/* rendering for Login icon */}
                 {!isLoading && <LogIn className="h-5 w-5 mr-2" />}
                 {isLoading ? (
@@ -224,7 +222,7 @@ const LoginPage = () => {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full flex justify-center py-3 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed mt-8 hover-scale-105"
+                  className="w-full flex justify-center py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed mt-8 hover-scale-105"
                   variant="dark"
                   size="md"
                 >
