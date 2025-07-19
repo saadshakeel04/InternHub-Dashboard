@@ -55,7 +55,7 @@ cd internhub
 npm install
 
 Create data files:
-Ensure you have candidates.js and internships.js files in your src/data/ directory. If they don't exist, create them.
+Ensure you have candidates.js, internships.js and notifications.js files in your src/data/ directory. If they don't exist, create them.
 
 ## Usage
 
