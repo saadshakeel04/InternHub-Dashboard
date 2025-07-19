@@ -11,7 +11,7 @@ export const candidates = [
   {
     id: '2',
     name: 'Minahil Farooq',
-    email: 'rooma@gmail.com',
+    email: 'minahil@gmail.com',
     appliedInternship: 'Frontend Developer Intern',
     status: 'Approved',
     appliedDate: '2025-04-05', 
