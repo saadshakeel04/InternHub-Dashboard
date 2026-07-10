@@ -44,18 +44,18 @@ export const AuthProvider = ({ children }) => {
   }, []); //runs only once on mount
 
 
-  const login = async (email, password) => {
+  const login = async (username, email, password) => {
     setIsLoading(true); // Set loading to true during login process
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     const randUser = {
       id: '1',
-      name: 'Saad Shakeel',
+      name: username,
+      username: username,
       email: email,
       role: 'Full Stack Developer',
-      department: 'Development',
-      avatar: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=1'
+      department: 'Development'
     };
 
     setUser(randUser);

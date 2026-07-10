@@ -84,9 +84,9 @@ const ProfilePage = () => {
             <User size={40} className="text-gray-400" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-800">{user?.name}</h2>
-            <p className="text-gray-600">{user?.role}</p>
+            <h2 className="text-2xl font-bold text-gray-800">{user?.username}</h2>
             <p className="text-gray-600">{user?.email}</p>
+            <p className="text-gray-600">{user?.role}</p>
           </div>
         </div>
       </div>
