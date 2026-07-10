@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { User, Mail, Shield, Lock, RefreshCcwDot, Briefcase, Eye, EyeOff } from 'lucide-react';
+import { User, AtSign, Mail, Shield, Lock, RefreshCcwDot, Briefcase, Eye, EyeOff } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import Button from '../components/Button';
 import FormInput from '../components/FormInput';
-import pic from '../assets/user.jpg';
 
 const ProfilePage = () => {
   //creating essentials for password changing
@@ -81,11 +80,9 @@ const ProfilePage = () => {
       {/*Header */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
         <div className="flex items-center space-x-6">
-          <img
-            src={pic}
-            alt={user?.name}
-            className="w-24 h-24 rounded-full object-cover border-4 border-gray-200"
-          />
+          <div className="w-24 h-24 rounded-full border-4 border-gray-200 bg-gray-100 flex items-center justify-center">
+            <User size={40} className="text-gray-400" />
+          </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-800">{user?.name}</h2>
             <p className="text-gray-600">{user?.role}</p>
@@ -104,6 +101,13 @@ const ProfilePage = () => {
               <div>
                 <p className="text-sm font-medium text-gray-700">Name</p>
                 <p className="text-gray-600">{user?.name}</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
+              <AtSign size={20} className="text-gray-500" />
+              <div>
+                <p className="text-sm font-medium text-gray-700">Username</p>
+                <p className="text-gray-600">{user?.username}</p>
               </div>
             </div>
             <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, Loader2, User, LogIn } from 'lucide-react';
+import { Eye, EyeOff, Loader2, User, Mail, LogIn } from 'lucide-react';
 import Button from '../components/Button';
 import { useAuth } from '../contexts/AuthContext';
 import logo from '../assets/logo.png';
 import backgroundImage from '../assets/bg.jpg';
 
 const LoginPage = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -17,6 +18,10 @@ const LoginPage = () => {
 
   const validateForm = () => {
     const newErrors = {};
+
+    if (!username) {
+      newErrors.username = 'Username is required';
+    }
 
     if (!email) {
       newErrors.email = 'Email is required';
@@ -41,7 +46,7 @@ const LoginPage = () => {
 
     setIsLoading(true);
     try {
-      await login(email, password);
+      await login(username, email, password);
       navigate('/dashboard');
     } catch (error) {
       setErrors({ email: 'Invalid credentials' });
@@ -76,6 +81,31 @@ const LoginPage = () => {
               <div>
                 <div className="relative">
                   <input
+                    id="usernameMobile"
+                    type="text"
+                    value={username}
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, username: '' }));
+                    }}
+                    className={`block w-full py-3 border-b border-black-300 focus:outline-none focus:border-black text-black placeholder-black-500 pr-10 bg-transparent ${
+                      errors.username ? 'border-red-400' : ''
+                    }`}
+                    placeholder="Username"
+                    aria-label="Username"
+                  />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <User className="h-5 w-5 text-black-500" />
+                  </div>
+                </div>
+                {errors.username && (
+                  <p className="mt-1 text-sm text-red-400">{errors.username}</p>
+                )}
+              </div>
+
+              <div>
+                <div className="relative">
+                  <input
                     id="emailMobile"
                     type="email"
                     value={email}
@@ -90,7 +120,7 @@ const LoginPage = () => {
                     aria-label="Email address"
                   />
                   <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                    <User className="h-5 w-5 text-black-500" />
+                    <Mail className="h-5 w-5 text-black-500" />
                   </div>
                 </div>
                 {errors.email && (
@@ -171,6 +201,31 @@ const LoginPage = () => {
                 <div>
                   <div className="relative">
                     <input
+                      id="username"
+                      type="text"
+                      value={username}
+                      onChange={(e) => {
+                      setUsername(e.target.value);
+                      setErrors(prevErrors => ({ ...prevErrors, username: '' }));
+                    }}
+                      className={`block w-full py-3 border-b border-gray-300 focus:outline-none focus:border-indigo-500 text-gray-900 placeholder-gray-500 pr-10 bg-transparent ${
+                        errors.username ? 'border-red-400' : ''
+                      }`}
+                      placeholder="Username"
+                      aria-label="Username"
+                    />
+                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <User className="h-5 w-5 text-gray-400" />
+                    </div>
+                  </div>
+                  {errors.username && (
+                    <p className="mt-1 text-sm text-red-600">{errors.username}</p>
+                  )}
+                </div>
+
+                <div>
+                  <div className="relative">
+                    <input
                       id="email"
                       type="email"
                       value={email}
@@ -181,11 +236,11 @@ const LoginPage = () => {
                       className={`block w-full py-3 border-b border-gray-300 focus:outline-none focus:border-indigo-500 text-gray-900 placeholder-gray-500 pr-10 bg-transparent ${
                         errors.email ? 'border-red-400' : ''
                       }`}
-                      placeholder="Username"
+                      placeholder="Email"
                       aria-label="Email address"
                     />
                     <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                      <User className="h-5 w-5 text-gray-400" />
+                      <Mail className="h-5 w-5 text-gray-400" />
                     </div>
                   </div>
                   {errors.email && (

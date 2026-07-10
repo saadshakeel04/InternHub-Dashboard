@@ -8,17 +8,9 @@ export const candidates = [
     appliedDate: '2025-07-15', 
     
   },
+
   {
     id: '2',
-    name: 'Minahil Farooq',
-    email: 'minahil@gmail.com',
-    appliedInternship: 'Frontend Developer Intern',
-    status: 'Approved',
-    appliedDate: '2025-04-05', 
-    
-  },
-  {
-    id: '3',
     name: 'Ch Abdullah',
     email: 'chAbd@gmail.com',
     appliedInternship: 'Data Science Intern', 
@@ -27,7 +19,7 @@ export const candidates = [
    
   },
   {
-    id: '4',
+    id: '3',
     name: 'Fatima Syed',
     email: 'fatima@gmail.com',
     appliedInternship: 'HR Intern', 
@@ -36,7 +28,7 @@ export const candidates = [
     
   },
   {
-    id: '5',
+    id: '4',
     name: 'Noor Fatima',
     email: 'ahsanR@gmail.com',
     appliedInternship: 'HR Intern', 
@@ -45,7 +37,7 @@ export const candidates = [
    
   },
   {
-    id: '6',
+    id: '5',
     name: 'Nimra Tariq',
     email: 'nimi@gmail.com',
     appliedInternship: 'Backend Developer Intern',
@@ -54,7 +46,7 @@ export const candidates = [
    
   },
   {
-    id: '7',
+    id: '6',
     name: 'Bilal Maher',
     email: 'bilal@gmail.com',
     appliedInternship: 'Backend Developer Intern',
@@ -63,7 +55,7 @@ export const candidates = [
   
   },
   {
-    id: '8',
+    id: '7',
     name: 'Mehwish Naveed',
     email: 'mehwish@gmail.com',
     appliedInternship: 'HR Intern',
@@ -72,7 +64,7 @@ export const candidates = [
     
   },
   {
-    id: '9',
+    id: '8',
     name: 'Zainab Fatima',
     email: 'zainab@gmail.com',
     appliedInternship: 'UX/UI Designer Intern', 
@@ -81,7 +73,7 @@ export const candidates = [
    
   },
   {
-    id: '10',
+    id: '9',
     name: 'Ali Hamza',
     email: 'ali@gmail.com',
     appliedInternship: 'DevOps Intern', 
