@@ -9,13 +9,12 @@ import {
   LogOut,
 } from 'lucide-react';
 import logo from '../assets/logo.png';
-import pic from '../assets/user.jpg';
 import { useAuth } from '../contexts/AuthContext'; 
 import Button from '../components/Button'; 
 
 export default function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
-  const { user, logout } = useAuth(); // Destructure user and logout from useAuth
+  const { user, logout } = useAuth(); 
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', icon: CircleGauge },
@@ -50,11 +49,9 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         <div className="flex items-center px-6 py-8 border-b border-gray-700">
-          <img
-            className="h-14 w-14 rounded-full object-cover ring-2 ring-indigo-500"
-            src={pic}
-            alt={user?.name || 'User'}
-          />
+          <div className="flex items-center justify-center h-14 w-14 rounded-full bg-gray-700 ring-2 ring-indigo-500 flex-shrink-0">
+            <User size={28} className="text-gray-300" />
+          </div>
           <div className="ml-4">
             <div className="text-lg font-semibold text-white">{user?.name}</div>
             <div className="text-sm text-gray-400">{user?.role}</div>
